@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv"></div>
+  <script>
+    // Correct way to add event listeners dynamically using let in the loop.
+    for (let i = 0; i < 10; i++) {
+      let div = document.createElement('div');
+      div.id = 'dynamicDiv' + i;
+      div.innerHTML = 'Dynamic Div ' + i;
+      document.body.appendChild(div);
+      div.addEventListener('click', (function(i) {
+        return function() {
+          alert('Div ' + i + ' clicked!');
+        };
+      })(i));
+    }
+  </script>
+</body>
+</html>
