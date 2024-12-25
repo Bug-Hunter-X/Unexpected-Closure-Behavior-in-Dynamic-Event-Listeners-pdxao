@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv"></div>
+  <script>
+    // Incorrect way to add event listeners dynamically
+    for (let i = 0; i < 10; i++) {
+      let div = document.createElement('div');
+      div.id = 'dynamicDiv' + i;
+      div.innerHTML = 'Dynamic Div ' + i;
+      document.body.appendChild(div);
+      div.addEventListener('click', function() {
+        alert('Div ' + i + ' clicked!');
+      });
+    }
+  </script>
+</body>
+</html>
